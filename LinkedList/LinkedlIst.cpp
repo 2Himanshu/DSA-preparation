@@ -23,6 +23,26 @@ void insert(int data){
     }
 }
 
+void insertAtEnd(int data){
+    struct node *newNode = new node();
+
+    if(head==NULL){
+        newNode->data = data;
+        newNode->next = head;
+        head = newNode;
+    }
+    else{
+        newNode->data = data;
+        newNode->next = NULL;
+        struct node *tmp = head;
+        while(tmp->next!=NULL){
+            tmp=tmp->next;
+        }
+        tmp->next = newNode;
+       
+    }
+}
+
 void print(){
     if(head==NULL){
         cout<<"List is empty"<<endl;
@@ -45,8 +65,10 @@ int main(){
     for(int i=0;i<n;i++){
         int a;
         cin>>a;
-       insert(a) 
+       insertAtEnd(a);
     }
+
+    
 
     print();
 
